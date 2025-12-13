@@ -1,0 +1,18 @@
+[
+  {
+    "topic": "WebGL Shaders",
+    "why": "Wanted to understand how pixels are actually colored on the GPU",
+    "depth": "explored",
+    "source": "experiment",
+    "lastTouched": "2025-03-02",
+    "confusing": false
+  },
+  {
+    "topic": "Stack Monotonicity",
+    "why": "Kept seeing it in sliding window problems",
+    "depth": "implemented",
+    "source": "dsa",
+    "lastTouched": "2025-03-01",
+    "confusing": false
+  }
+]
