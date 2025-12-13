@@ -1,0 +1,34 @@
+.widget {
+  position: absolute;
+  border-radius: 12px;
+}
+
+/* IMAGE */
+.image-widget img {
+  width: 100%;
+  display: block;
+}
+
+/* RANDOM FACT */
+.fact-widget {
+  width: 220px;
+  background: #111;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* JSON */
+.json-widget {
+  width: 300px;
+  font-family: monospace;
+  font-size: 0.85rem;
+  background: #0f1117;
+  padding: 1rem;
+  color: #cdd6f4;
+}
+
+/* QUOTE */
+.quote-widget {
+  font-family: monospace;
+  font-size: 1.4rem;
+}
