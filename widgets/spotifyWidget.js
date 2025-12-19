@@ -1,54 +1,39 @@
-function createSpotifyWidget(x, y, z) {
-  const el = document.createElement("div");
-  el.className = "widget spotify-mini-player";
+function createSpotifyWidget(x, y) {
+  const widget = document.createElement("div");
+  widget.className = "spotify-widget";
 
-  el.innerHTML = `
-    <div class="player-left">
-      <img class="album-art" />
+  widget.innerHTML = `
+    <img class="album-art" />
+    <div class="info">
+      <p class="lp"></p>
+      <p class="title">Loading...</p>
+      <p class="artist"></p>
     </div>
-
-    <div class="player-center">
-      <p class="track-name"></p>
-      <p class="artist-name"></p>
-    </div>
-
-    <div class="player-right">
-      <span class="icon prev">⏮</span>
-      <span class="icon play">⏸</span>
-      <span class="icon next">⏭</span>
+    <div class="player">
+      <span class="icon">⏮</span>
+      <span class="icon">▶</span>
+      <span class="icon">⏭</span>
     </div>
   `;
 
-  const albumArt = el.querySelector(".album-art");
-  const trackName = el.querySelector(".track-name");
-  const artistName = el.querySelector(".artist-name");
-  const playIcon = el.querySelector(".play");
+  place(widget, x, y);
+  document.getElementById("canvas").appendChild(widget);
 
-  async function updatePlayer() {
+  async function update() {
     try {
       const res = await fetch("http://127.0.0.1:3001/spotify/recently-played");
-
       const data = await res.json();
+      if (!data) return;
 
-      if (!data) {
-        trackName.textContent = "Not playing";
-        artistName.textContent = "";
-        playIcon.textContent = "▶";
-        return;
-      }
-
-      albumArt.src = data.albumArt;
-      trackName.textContent = data.title;
-      artistName.textContent = data.artist;
-      playIcon.textContent = data.isPlaying ? "⏸" : "▶";
+      widget.querySelector(".album-art").src = data.albumArt;
+      widget.querySelector(".title").textContent = data.title;
+      widget.querySelector(".artist").textContent = data.artist;
+      widget.querySelector(".lp").textContent = "Last played..";
     } catch {
-      trackName.textContent = "Spotify unavailable";
+      widget.querySelector(".title").textContent = "Spotify unavailable";
     }
   }
 
-  updatePlayer();
-  setInterval(updatePlayer, 15000);
-
-  place(el, x, y, z);
-  document.getElementById("canvas").appendChild(el);
+  update();
+  setInterval(update, 15000);
 }

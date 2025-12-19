@@ -5,4 +5,4 @@ createTechFactWidget(15, 37, 3);
 createJSONWidget(45, 19, 2, "Elixir", "Lightweight and Unique", "Exploring basics");
 createJSONWidget(10, 5, 1, "React", "component-based UI", "Actively using");
 createQuoteWidget("Everything will be fine", 75, 5, 4);
-createSpotifyWidget(7, 20, 4);
+createSpotifyWidget(7,20);
