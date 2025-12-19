@@ -132,3 +132,62 @@
   font-family: monospace;
   font-size: 1.4rem;
 }
+
+
+/* SPOTIFY PLAYED  */
+.spotify-mini-player {
+  width: 360px;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  padding: 0.8rem 1rem;
+  gap: 1rem;
+
+  background: #2a2a2a;
+  border-radius: 18px;
+  color: white;
+}
+
+/* album art */
+.player-left img {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* center text */
+.player-center {
+  flex: 1;
+  overflow: hidden;
+}
+
+.track-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.artist-name {
+  font-size: 0.8rem;
+  color: #b3b3b3;
+}
+
+/* controls */
+.player-right {
+  display: flex;
+  gap: 0.8rem;
+  font-size: 1.2rem;
+  color: #b3b3b3;
+}
+
+.player-right .icon {
+  cursor: default;
+}
+
+.player-right .play {
+  font-size: 1.4rem;
+  color: white;
+}
